@@ -21,3 +21,24 @@ const secondDiceNewSrc = firstDiceSrc.replace(
   randomSecondDice
 );
 const secondDiceImage = secondDice.setAttribute("src", secondDiceNewSrc);
+
+// to determine the winner
+let textTitle = document.getElementsByTagName("h1")[0];
+
+let textPlayer1 = document
+  .getElementsByClassName("dice")[0]
+  .getElementsByTagName("p")[0].textContent;
+let textPlayer2 = document
+  .getElementsByClassName("dice")[1]
+  .getElementsByTagName("p")[0].textContent;
+
+// condition for winner player
+if (randomNumber_1 === randomNumber_2) {
+  textTitle.textContent = "Draw";
+} else if (randomNumber_1 > randomNumber_2) {
+  textTitle.textContent = `${textPlayer1} Wins !`;
+} else if (randomNumber_1 < randomNumber_2) {
+  textTitle.textContent = `${textPlayer2} Wins !`;
+} else {
+  console.log("not found . . .");
+}
